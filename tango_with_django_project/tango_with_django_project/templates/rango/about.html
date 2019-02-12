@@ -1,0 +1,29 @@
+{% extends 'rango/base.html' %}
+
+  {% load staticfiles %}
+
+{% block title_block %}
+  About
+{% endblock %}
+ 
+{% block body_block %}
+  <div>
+      <h1>Rango says...</h1>
+      here is the about page. <br/>
+      <strong>{{ boldmessage }}</strong><br/>
+  
+  <img src="{% static 'images/cool guy.gif' %}" alt="My big guy."/>
+  <img src="{{ MEDIA_URL}}cat.gif" alt="Excuse me?."/>
+ </div>
+{% endblock %}
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  

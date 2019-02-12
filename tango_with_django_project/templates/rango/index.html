@@ -1,51 +1,18 @@
-<!DOCTYPE html>
-{% load staticfiles %} 
-<html> 
-<head> 
-    <title>Rango</title> 
-</head>
-
-<body> 
-    <h1>Rango says...</h1> 
-    <div>hey there partner!</div>
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<h1>Rango says...</h1>
 <div>
-    <div>
-            <h4>Most Liked Categories</h4>
-            <p>
-            {% if categories %}
-        <ul class="list-group">
-        {% for category in categories %}
-            <li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a></li>
-        {% endfor %}
-        </ul>
+        {% if user.is_authenticated %}
+            mamamiya {{ user.username }}!
         {% else %}
-        <strong>There are no categories present.</strong>
-    {% endif %}
-    
-        </p>
+            hey there partner!
+        {% endif %}
+         <br />
     </div>
-    
-    <div>
-        <h4>Most Viewed Pages</h4>
-        <p>
-        {% if pages %}
-        <ul class="list-group">
-        {% for page in pages %}
-            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-        {% endfor %}
-        </ul>
-        {% else %}
-        <strong>There are no categories present.</strong>
-    {% endif %}
-        </p>
-    </div>
-
-</div>
-    
-    <div> 
-        <a href="/rango/about/">About Rango</a><br /> 
-        <a href="/rango/add_category/">Add a New Category</a><br />
+<div>
         <img src="{% static 'images/rango.gif' %}" alt="Picture of Rango" />
-    </div> 
-</body> 
-</html>
+</div>
+{% endblock %}
+
+
